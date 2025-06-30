@@ -42,70 +42,71 @@ export function FeaturedArticlesSection() {
                 {type}
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
-                {/* Главная статья */}
-                <div className="md:col-span-6">
-                  {mainArticle && (
-                    <a
-                      href={`/blog/${mainArticle.id}`}
-                      className="group relative rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow bg-white"
-                    >
-                      <img
-                        src={mainArticle.image}
-                        alt={mainArticle.title}
-                        className="w-full h-[420px] object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-6">
-                        <h3 className="text-3xl md:text-4xl font-bold text-white">{mainArticle.title}</h3>
-                        <p className="mt-2 text-white text-[20px] line-clamp-3">{mainArticle.summary}</p>
-                      </div>
-                    </a>
-                  )}
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8">
+  {/* Главная статья */}
+  {mainArticle && (
+    <div className="md:col-span-6 sm:col-span-2 col-span-1">
+      <a
+        href={`/blog/${mainArticle.id}`}
+        className="group relative rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow bg-white h-60 sm:h-[420px]"
+      >
+        <img
+          src={mainArticle.image}
+          alt={mainArticle.title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-6">
+          <h3 className="text-xl sm:text-3xl md:text-4xl font-bold text-white">{mainArticle.title}</h3>
+          <p className="mt-2 text-white text-sm sm:text-[20px] line-clamp-2 sm:line-clamp-3">{mainArticle.summary}</p>
+        </div>
+      </a>
+    </div>
+  )}
 
-                {/* Средние статьи */}
-                {mediumArticles.map((article) => (
-                  <div key={article.id} className="md:col-span-3">
-                    <a
-                      href={`/blog/${article.id}`}
-                      className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow flex flex-col"
-                    >
-                      <img
-                        src={article.image}
-                        alt={article.title}
-                        className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="p-4">
-                        <h4 className="text-xl font-semibold text-gray-900 group-hover:text-purple-700">
-                          {article.title}
-                        </h4>
-                        <p className="text-gray-600 mt-2 text-sm line-clamp-3">{article.summary}</p>
-                      </div>
-                    </a>
-                  </div>
-                ))}
+  {/* Средние статьи */}
+  {mediumArticles.map((article) => (
+    <div key={article.id} className="md:col-span-3 sm:col-span-2 col-span-1">
+      <a
+        href={`/blog/${article.id}`}
+        className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow flex flex-col h-60"
+      >
+        <img
+          src={article.image}
+          alt={article.title}
+          className="w-full h-1/2 object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+        <div className="p-4 h-1/2 flex flex-col justify-between">
+          <h4 className="text-base sm:text-lg font-semibold text-gray-900 group-hover:text-purple-700">
+            {article.title}
+          </h4>
+          <p className="text-gray-600 mt-1 text-sm line-clamp-2">{article.summary}</p>
+        </div>
+      </a>
+    </div>
+  ))}
 
-                {/* Маленькие статьи */}
-                {smallArticles.map((article) => (
-                  <div key={article.id} className="md:col-span-2">
-                    <a
-                      href={`/blog/${article.id}`}
-                      className="group bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-                    >
-                      <img
-                        src={article.image}
-                        alt={article.title}
-                        className="w-full h-36 object-cover rounded-t-lg group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="p-3">
-                        <h5 className="text-lg font-medium text-gray-800 group-hover:text-indigo-600">
-                          {article.title}
-                        </h5>
-                      </div>
-                    </a>
-                  </div>
-                ))}
-              </div>
+  {/* Маленькие статьи */}
+  {smallArticles.map((article) => (
+    <div key={article.id} className="md:col-span-2 sm:col-span-1 col-span-1">
+      <a
+        href={`/blog/${article.id}`}
+        className="group bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow h-60 flex flex-col"
+      >
+        <img
+          src={article.image}
+          alt={article.title}
+          className="w-full h-1/2 object-cover rounded-t-lg group-hover:scale-105 transition-transform duration-300"
+        />
+        <div className="p-3 h-1/2 flex flex-col justify-center">
+          <h5 className="text-base font-medium text-gray-800 group-hover:text-indigo-600 text-center">
+            {article.title}
+          </h5>
+        </div>
+      </a>
+    </div>
+  ))}
+</div>
+
             </section>
           )
         })}
