@@ -44,24 +44,27 @@ export function FeaturedArticlesSection() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8">
   {/* Главная статья */}
-  {mainArticle && (
-    <div className="md:col-span-6 sm:col-span-2 col-span-1">
-      <a
-        href={`/blog/${mainArticle.id}`}
-        className="group relative rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow bg-white h-60 sm:h-[420px]"
-      >
-        <img
-          src={mainArticle.image}
-          alt={mainArticle.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-6">
-          <h3 className="text-xl sm:text-3xl md:text-4xl font-bold text-white">{mainArticle.title}</h3>
-          <p className="mt-2 text-white text-sm sm:text-[20px] line-clamp-2 sm:line-clamp-3">{mainArticle.summary}</p>
-        </div>
-      </a>
-    </div>
-  )}
+{mainArticle && (
+  <div className="md:col-span-6 sm:col-span-2 col-span-1">
+    <a
+      href={`/blog/${mainArticle.id}`}
+      className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow flex flex-col h-60"
+    >
+      <img
+        src={mainArticle.image}
+        alt={mainArticle.title}
+        className="w-full h-1/2 object-cover group-hover:scale-105 transition-transform duration-300"
+      />
+      <div className="p-4 h-1/2 flex flex-col justify-center items-center text-center">
+        <h4 className="text-base sm:text-lg font-semibold text-gray-900 group-hover:text-purple-700">
+          {mainArticle.title}
+        </h4>
+        <p className="text-gray-600 mt-1 text-sm line-clamp-2">{mainArticle.summary}</p>
+      </div>
+    </a>
+  </div>
+)}
+
 
   {/* Средние статьи */}
   {mediumArticles.map((article) => (
